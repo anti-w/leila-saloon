@@ -24,6 +24,19 @@ a:visited {
   color: inherit;
 }
 
+button {
+    border-style: none;
+    padding: 1.4rem;
+    text-align: center;
+    background: transparent;
+    border: 2px solid gray;
+    border-radius: 10px;
+    color: white;
+    cursor: pointer;
+    font-size: 1.6rem;
+    font-weight: bold;
+  }
+
 
 
 
