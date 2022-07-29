@@ -1,44 +1,73 @@
-import { useState } from 'react';
+import P from 'prop-types';
+
 import * as Styled from './styles';
+import * as Yup from 'yup';
+import React, { useContext } from 'react';
+
+import { AuthContext } from '../../context/authContext';
+
+import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { TextError } from '../../components/TextError';
 
 export const Login = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const { authenticated, login } = useContext(AuthContext);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log('submit');
+  const initialValues = {
+    email: '',
+    password: '',
   };
+
+  const onSubmit = (values) => {
+    login(values.email, values.password);
+  };
+
+  const validationSchema = Yup.object({
+    email: Yup.string()
+      .email('Formato de e-mail inválido')
+      .required('E-mail é obrigatório'),
+    password: Yup.string().required('Password é obrigatório'),
+  });
 
   return (
     <Styled.Container>
-      <h1>Login</h1>
-      <Styled.Form onSubmit={handleSubmit}>
-        <Styled.Field>
-          <label htmlFor="email">Email:</label>
-          <input
-            type="email"
-            name="email"
-            id="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-        </Styled.Field>
-        <Styled.Field>
-          <label htmlFor="password">Senha:</label>
-          <input
-            type="password"
-            name="password"
-            id="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-        </Styled.Field>
-        <Styled.ButtonContainer>
-          <button type="submit">Entrar</button>
-          <button type="submit">Registrar</button>
-        </Styled.ButtonContainer>
-      </Styled.Form>
+      <h1 style={{ marginBottom: '20px' }}>Entre com sua conta</h1>
+      <Styled.FormContainer>
+        <Formik
+          initialValues={initialValues}
+          validationSchema={validationSchema}
+          onSubmit={onSubmit}
+        >
+          <Form>
+            <Styled.Field>
+              <label htmlFor="email">Email:</label>
+              <Field
+                id="email"
+                name="email"
+                type="email"
+                placeholder="Insira seu e-mail"
+              />
+              <ErrorMessage name="email" component={TextError} />
+            </Styled.Field>
+
+            <Styled.Field>
+              <label htmlFor="password">Senha:</label>
+              <Field
+                id="password"
+                name="password"
+                type="password"
+                placeholder="Insira sua senha"
+              />
+              <ErrorMessage name="password" component={TextError} />
+            </Styled.Field>
+            <Styled.FormFooter>
+              <button type="submit"> Entrar</button>
+              <p>
+                {`Não possui conta? `} <a href="/register">Registrar</a>{' '}
+              </p>
+            </Styled.FormFooter>
+          </Form>
+        </Formik>
+      </Styled.FormContainer>
     </Styled.Container>
   );
 };

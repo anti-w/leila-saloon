@@ -1,5 +1,6 @@
 import P from 'prop-types';
 import { ThemeProvider } from 'styled-components';
+import { AppRoutes } from '../AppRoutex';
 import { Home } from '../pages/Home';
 import { Login } from '../pages/Login';
 
@@ -15,7 +16,7 @@ export const MyThemeProvider = () => {
   return (
     <ThemeProvider theme={themeMode} toggleTheme={toggleTheme}>
       <GlobalStyles />
-      <Login />
+      <AppRoutes />
     </ThemeProvider>
   );
 };
