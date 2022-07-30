@@ -8,9 +8,11 @@ import { AuthContext } from '../../context/authContext';
 
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { TextError } from '../../components/TextError';
+import { useNavigate } from 'react-router-dom';
 
 export const Login = () => {
   const { authenticated, login } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const initialValues = {
     email: '',
@@ -27,6 +29,8 @@ export const Login = () => {
       .required('E-mail é obrigatório'),
     password: Yup.string().required('Password é obrigatório'),
   });
+
+  if (authenticated) return navigate('/meals');
 
   return (
     <Styled.Container>

@@ -1,7 +1,8 @@
+import * as Styled from './styles';
+
 import { About } from '../../components/About';
 import { Footer } from '../../components/Footer';
 import { Header } from '../../components/Header';
-import * as Styled from './styles';
 
 export const Home = () => {
   return (

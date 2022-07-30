@@ -23,10 +23,9 @@ export const AuthProvider = ({ children }) => {
   }, []);
 
   const login = (email, password) => {
-    console.log('clicou');
-
     signUser({ email, password })
       .then((response) => {
+        console.log(response);
         localStorage.setItem('user', JSON.stringify(response.data.user));
         localStorage.setItem('token', JSON.stringify(response.data.token));
         api.defaults.headers.Authorization = `Bearer ${response.data.token}`;

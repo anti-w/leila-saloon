@@ -9,9 +9,11 @@ import { AuthContext } from '../../context/authContext';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { TextError } from '../../components/TextError';
 import { createUser } from '../../services/createUser';
+import { useNavigate } from 'react-router-dom';
 
 export const Register = () => {
   const { authenticated, login } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const initialValues = {
     email: '',
@@ -20,8 +22,9 @@ export const Register = () => {
     confirmpassword: '',
   };
 
-  const onSubmit = (values) => {
-    createUser(values);
+  const onSubmit = async (values) => {
+    await createUser(values);
+    await login(values.email, values.password);
   };
 
   const validationSchema = Yup.object({
@@ -34,6 +37,8 @@ export const Register = () => {
       .oneOf([Yup.ref('password'), ''], 'As senhas devem ser iguais')
       .required('Confirmar sua senha é obrigatório'),
   });
+
+  if (authenticated) return navigate('/meals');
 
   return (
     <Styled.Container>
