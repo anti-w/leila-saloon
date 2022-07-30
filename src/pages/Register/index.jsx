@@ -38,7 +38,7 @@ export const Register = () => {
       .required('Confirmar sua senha é obrigatório'),
   });
 
-  if (authenticated) return navigate('/meals');
+  if (authenticated) return navigate('/user');
 
   return (
     <Styled.Container>

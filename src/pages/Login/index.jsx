@@ -30,7 +30,7 @@ export const Login = () => {
     password: Yup.string().required('Password é obrigatório'),
   });
 
-  if (authenticated) return navigate('/meals');
+  if (authenticated) return navigate('/user');
 
   return (
     <Styled.Container>

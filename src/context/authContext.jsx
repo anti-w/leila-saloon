@@ -31,7 +31,7 @@ export const AuthProvider = ({ children }) => {
         api.defaults.headers.Authorization = `Bearer ${response.data.token}`;
 
         setUser(response.data);
-        navigate('/meals');
+        navigate('/user');
       })
       .catch(({ response }) => {
         alert(response.data.msg);

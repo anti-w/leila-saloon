@@ -27,3 +27,20 @@ export const Container = styled.div`
 
   `}
 `;
+
+export const FlexImages = styled.div`
+  ${({ theme }) => css`
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 5rem;
+
+  img {
+    aspect-ratio: 1/1;
+    width: 30rem;
+  }
+
+  `}
+`;

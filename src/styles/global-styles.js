@@ -9,7 +9,7 @@ export const GlobalStyles = createGlobalStyle`
     box-sizing: border-box;
 }
 html {
-    font-size: 62.5%;
+
     scroll-behavior: smooth;
 }
 
@@ -20,24 +20,25 @@ body {
   font-family: ${({ theme }) => theme.fonts.family.header};
 }
 
+h1 {
+  font-size: 36px;
+}
+
 a:visited {
   color: inherit;
 }
 
 button {
     border-style: none;
-    padding: 1.4rem;
+    min-width: 100px;
+    padding: 14px;
     text-align: center;
     background: transparent;
     border: 2px solid gray;
     border-radius: 10px;
     color: white;
     cursor: pointer;
-    font-size: 1.6rem;
+    font-size: 16px;
     font-weight: bold;
   }
-
-
-
-
 `;
