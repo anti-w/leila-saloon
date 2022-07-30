@@ -30,6 +30,7 @@ Esse sistema foi desenvolvido para um desafio proposto pela empresa [DSIN - Tecn
 - [NodeJS](https://nodejs.org/en/)
 - [React Hook Form](https://react-hook-form.com/)
 - [Phosphor Icons](https://phosphoricons.com/)
+- [React DatePicker](https://reactdatepicker.com/)
 
 
 
