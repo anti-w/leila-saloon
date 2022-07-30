@@ -22,6 +22,7 @@ body {
 
 h1 {
   font-size: 36px;
+  color: white
 }
 
 a:visited {
@@ -41,4 +42,9 @@ button {
     font-size: 16px;
     font-weight: bold;
   }
+
+button:hover{
+  background: ${({ theme }) => theme.colors.menu.primary};
+  border-color: ${({ theme }) => theme.colors.menu.primary};
+}
 `;

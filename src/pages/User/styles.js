@@ -19,10 +19,9 @@ export const MenuSideBar = styled.div`
   ${({ theme }) => css`
   display: flex;
   justify-content: space-between;
-  gap: 20px;
   align-items: center;
-  width: 100vw;
-  padding: 10px;
+  width: 100%;
+  padding: 5px;
   box-shadow: 4px 9px 10px -2px rgba(0,0,0,0.54);
   border-radius: 10px;
   `}
