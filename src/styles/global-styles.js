@@ -29,7 +29,7 @@ a:visited {
   color: inherit;
 }
 
-button {
+.styled-button {
     border-style: none;
     min-width: 100px;
     padding: 14px;
@@ -46,5 +46,11 @@ button {
 button:hover{
   background: ${({ theme }) => theme.colors.menu.primary};
   border-color: ${({ theme }) => theme.colors.menu.primary};
+}
+
+button:disabled{
+  background: ${({ theme }) => theme.colors.menu.primary};;
+  opacity: 0.2;
+  cursor: not-allowed
 }
 `;

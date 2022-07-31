@@ -27,14 +27,18 @@ export const Login = () => {
     email: Yup.string()
       .email('Formato de e-mail inválido')
       .required('E-mail é obrigatório'),
-    password: Yup.string().required('Password é obrigatório'),
+    password: Yup.string().required(
+      'Password é obrigatório',
+    ),
   });
 
   if (authenticated) return navigate('/user');
 
   return (
     <Styled.Container>
-      <h1 style={{ marginBottom: '20px' }}>Entre com sua conta</h1>
+      <h1 style={{ marginBottom: '20px' }}>
+        Entre com sua conta
+      </h1>
       <Styled.FormContainer>
         <Formik
           initialValues={initialValues}
@@ -50,7 +54,10 @@ export const Login = () => {
                 type="email"
                 placeholder="Insira seu e-mail"
               />
-              <ErrorMessage name="email" component={TextError} />
+              <ErrorMessage
+                name="email"
+                component={TextError}
+              />
             </Styled.Field>
 
             <Styled.Field>
@@ -61,12 +68,22 @@ export const Login = () => {
                 type="password"
                 placeholder="Insira sua senha"
               />
-              <ErrorMessage name="password" component={TextError} />
+              <ErrorMessage
+                name="password"
+                component={TextError}
+              />
             </Styled.Field>
             <Styled.FormFooter>
-              <button type="submit"> Entrar</button>
+              <button
+                type="submit"
+                className="styled-button"
+              >
+                {' '}
+                Entrar
+              </button>
               <p>
-                {`Não possui conta? `} <a href="/register">Registrar</a>{' '}
+                {`Não possui conta? `}{' '}
+                <a href="/register">Registrar</a>{' '}
               </p>
             </Styled.FormFooter>
           </Form>

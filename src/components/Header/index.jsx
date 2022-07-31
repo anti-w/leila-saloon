@@ -6,9 +6,8 @@ export const Header = () => {
     <Styled.Container>
       <Butterfly size={42} />
       <Styled.Links>
-        <a>Sobre nós</a>
-        <a>Nosso Blog</a>
-        <a>Contato</a>
+        <a href="/login">Entrar</a>
+        <a href="/register">Cadastrar</a>
       </Styled.Links>
     </Styled.Container>
   );

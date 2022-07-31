@@ -2,10 +2,10 @@ import styled, { css } from 'styled-components';
 
 export const Container = styled.div`
   ${({ theme }) => css`
-    padding: 1rem;
+    padding: 10px;
     display: flex;
     flex-direction: column;
-    gap: 3rem;
+    gap: 30px;
     justify-content: center;
     align-items: flex-start;
     width: 100vw;

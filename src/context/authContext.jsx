@@ -1,8 +1,13 @@
 import PropTypes from 'prop-types';
-import React, { createContext, useState, useEffect } from 'react';
+import React, {
+  createContext,
+  useState,
+  useEffect,
+} from 'react';
 import { useNavigate } from 'react-router-dom';
 import { signUser } from '../services/signUser';
 import { api } from '../services/api';
+import { listSchedules } from '../services/listSchedules';
 
 export const AuthContext = createContext();
 
@@ -26,8 +31,11 @@ export const AuthProvider = ({ children }) => {
     signUser({ email, password })
       .then((response) => {
         console.log(response);
-        localStorage.setItem('user', JSON.stringify(response.data.user));
-        localStorage.setItem('token', JSON.stringify(response.data.token));
+        localStorage.setItem(
+          'user',
+          JSON.stringify(response.data.user),
+        );
+        localStorage.setItem('token', response.data.token);
         api.defaults.headers.Authorization = `Bearer ${response.data.token}`;
 
         setUser(response.data);

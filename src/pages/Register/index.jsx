@@ -1,6 +1,6 @@
 import P from 'prop-types';
 
-import * as Styled from './styles';
+import * as Styled from '../Login/styles';
 import * as Yup from 'yup';
 import React, { useContext } from 'react';
 
@@ -32,9 +32,14 @@ export const Register = () => {
     email: Yup.string()
       .email('Formato de e-mail inválido')
       .required('O e-mail é obrigatório'),
-    password: Yup.string().required('A senha é obrigatória'),
+    password: Yup.string().required(
+      'A senha é obrigatória',
+    ),
     confirmpassword: Yup.string()
-      .oneOf([Yup.ref('password'), ''], 'As senhas devem ser iguais')
+      .oneOf(
+        [Yup.ref('password'), ''],
+        'As senhas devem ser iguais',
+      )
       .required('Confirmar sua senha é obrigatório'),
   });
 
@@ -42,7 +47,9 @@ export const Register = () => {
 
   return (
     <Styled.Container>
-      <h1 style={{ marginBottom: '20px' }}>Faça seu cadastro</h1>
+      <h1 style={{ marginBottom: '20px' }}>
+        Faça seu cadastro
+      </h1>
       <Styled.FormContainer>
         <Formik
           initialValues={initialValues}
@@ -58,7 +65,10 @@ export const Register = () => {
                 type="name"
                 placeholder="Insira seu nome"
               />
-              <ErrorMessage name="name" component={TextError} />
+              <ErrorMessage
+                name="name"
+                component={TextError}
+              />
             </Styled.Field>
             <Styled.Field>
               <label htmlFor="email">Email:</label>
@@ -68,7 +78,10 @@ export const Register = () => {
                 type="email"
                 placeholder="Insira seu e-mail"
               />
-              <ErrorMessage name="email" component={TextError} />
+              <ErrorMessage
+                name="email"
+                component={TextError}
+              />
             </Styled.Field>
 
             <Styled.Field>
@@ -79,22 +92,37 @@ export const Register = () => {
                 type="password"
                 placeholder="Insira sua senha"
               />
-              <ErrorMessage name="password" component={TextError} />
+              <ErrorMessage
+                name="password"
+                component={TextError}
+              />
             </Styled.Field>
             <Styled.Field>
-              <label htmlFor="password">Confirme sua senha:</label>
+              <label htmlFor="password">
+                Confirme sua senha:
+              </label>
               <Field
                 id="confirmpassword"
                 name="confirmpassword"
                 type="password"
                 placeholder="Repita sua senha"
               />
-              <ErrorMessage name="confirmpassword" component={TextError} />
+              <ErrorMessage
+                name="confirmpassword"
+                component={TextError}
+              />
             </Styled.Field>
             <Styled.FormFooter>
-              <button type="submit"> Cadastrar</button>
+              <button
+                type="submit"
+                className="styled-button"
+              >
+                {' '}
+                Cadastrar
+              </button>
               <p>
-                Já possui cadastro? <a href="/login">Entrar</a>{' '}
+                Já possui cadastro?{' '}
+                <a href="/login">Entrar</a>{' '}
               </p>
             </Styled.FormFooter>
           </Form>

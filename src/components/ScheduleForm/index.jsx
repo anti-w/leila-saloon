@@ -1,18 +1,20 @@
 import P from 'prop-types';
 import * as Styled from './styles';
 import * as Yup from 'yup';
+
+import { Controller, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 
 import React, { useContext, useState } from 'react';
+import DatePicker from 'react-datepicker';
 
 import { X } from 'phosphor-react';
 
 import { AuthContext } from '../../context/authContext';
+import { createSchedule } from '../../services/createSchedule';
 
-import { Controller, useForm } from 'react-hook-form';
 import { TextError } from '../TextError';
-import { useNavigate } from 'react-router-dom';
-import DatePicker from 'react-datepicker';
+import { updateSchedule } from '../../services/updateSchedule';
 
 const saloonServices = [
   {
@@ -94,12 +96,19 @@ const isWeekDay = (date) => {
   if (day === 0) return false;
   else return true;
 };
-export const ScheduleForm = ({ display, setDisplay }) => {
-  const validationSchema = Yup.object({
-    service: Yup.string().required('Escolha o serviço'),
-    selectedDate: Yup.date().required('Escolha o dia'),
-  });
 
+const validationSchema = Yup.object({
+  service: Yup.string().required('Escolha o serviço'),
+  selectedDate: Yup.date().required('Escolha o dia'),
+});
+
+export const ScheduleForm = ({
+  displayForm,
+  setDisplayForm,
+  isUpdating = false,
+  scheduleId = '',
+  setIsUpdating,
+}) => {
   const {
     handleSubmit,
     control,
@@ -108,10 +117,31 @@ export const ScheduleForm = ({ display, setDisplay }) => {
   } = useForm({
     resolver: yupResolver(validationSchema),
   });
-  const onSubmit = (data) => console.log(data);
+
+  const { user } = useContext(AuthContext);
+
+  const onSubmit = async (data) => {
+    if (isUpdating) {
+      await updateSchedule(
+        scheduleId,
+        data.selectedDate,
+        data.service,
+      );
+      await setIsUpdating(false);
+    } else {
+      await createSchedule(
+        user._id,
+        user.name,
+        data.selectedDate,
+        data.service,
+      );
+    }
+
+    await setDisplayForm(false);
+  };
 
   return (
-    <Styled.Container display={display}>
+    <Styled.Container displayForm={displayForm}>
       <h1 style={{ marginBottom: '20px' }}>
         Agendar um horário
       </h1>
@@ -168,8 +198,14 @@ export const ScheduleForm = ({ display, setDisplay }) => {
             )}
           </Styled.Field>
           <Styled.ButtonContainer>
-            <button type="submit">Agendar</button>
-            <button onClick={() => setDisplay(false)}>
+            <button className="styled-button" type="submit">
+              Agendar
+            </button>
+            <button
+              className="styled-button"
+              type="button"
+              onClick={() => setDisplayForm(false)}
+            >
               <X />
             </button>
           </Styled.ButtonContainer>
@@ -180,6 +216,9 @@ export const ScheduleForm = ({ display, setDisplay }) => {
 };
 
 ScheduleForm.propTypes = {
-  display: P.bool.isRequired,
-  setDisplay: P.func.isRequired,
+  displayForm: P.bool.isRequired,
+  setDisplayForm: P.func.isRequired,
+  isUpdating: P.bool,
+  scheduleId: P.string,
+  setIsUpdating: P.func,
 };

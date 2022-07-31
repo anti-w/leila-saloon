@@ -1,13 +1,13 @@
 import styled, { css } from 'styled-components';
 
 export const Container = styled.div`
-  ${({ theme, display }) => css`
+  ${({ theme, displayForm }) => css`
 
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.50);
   position: absolute;
-  display: ${display ? 'flex' : 'none'};
+  display: ${displayForm ? 'flex' : 'none'};
   justify-content: center;
   align-items: center;
   flex-direction: column;

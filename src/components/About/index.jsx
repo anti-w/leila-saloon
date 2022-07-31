@@ -14,18 +14,27 @@ export const About = () => {
 
   return (
     <Styled.Container>
-      <h1>Bem vinds ao Cabeleleila Leila Salão de Beleiza </h1>
+      <h1>
+        Bem vinds ao Cabeleleila Leila Salão de Beleiza{' '}
+      </h1>
       <Styled.FlexImages>
         <img src="https://marciatravessoni.com.br/wp-content/uploads/2021/09/Ida-Axenstedt-1.jpg" />
         <img src="https://marciatravessoni.com.br/wp-content/uploads/2021/09/jf-beauty-1.jpg" />
       </Styled.FlexImages>
 
       <p>
-        Nossa equipe está preparada para lhe atender da melhor forma possível,
-        afinal de contas a Cabeleleila Leila existe para transformar a sua
-        autoestima e dar brilho para o que você tem de melhor. VOCÊ!
+        Nossa equipe está preparada para lhe atender da
+        melhor forma possível, afinal de contas a
+        Cabeleleila Leila existe para transformar a sua
+        autoestima e dar brilho para o que você tem de
+        melhor. VOCÊ!
       </p>
-      <button onClick={handleScheduleClick}>Agende seu horário</button>
+      <button
+        className="styled-button"
+        onClick={handleScheduleClick}
+      >
+        Agende seu horário
+      </button>
     </Styled.Container>
   );
 };

@@ -5,12 +5,12 @@ export const Container = styled.header`
 
   display: flex;
   width: 100%;
-  height: 5rem;
-  padding: 0.5rem 2rem;
+  height: 70px;
+  padding: 5px 20px;
   border-bottom: 1px solid gray;
   justify-content: space-between;
   align-items: center;
-  font-size: 1.4rem;
+  font-size: 20px;
 
   `}
 `;
@@ -19,8 +19,7 @@ export const Links = styled.a`
   ${({ theme }) => css`
 
   display: flex;
-  gap: 2rem;
-  width: 30rem;
+  gap: 30px;
   cursor: pointer;
   justify-content: space-between;
   align-items: center;

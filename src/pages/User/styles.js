@@ -52,3 +52,20 @@ export const Content = styled.div`
 
   `}
 `;
+export const ScheduleCard = styled.div`
+  ${({ theme }) => css`
+  display: flex;
+  flex-direction: row;
+  margin-block: 10px;
+  padding: 5px;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid gray;
+  gap: 20px;
+  height: 80px;
+  background:  ${theme.colors.menu.background};
+  overflow: hidden;
+  border-radius: 10px;
+
+  `}
+`;
