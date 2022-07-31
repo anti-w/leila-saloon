@@ -15,10 +15,13 @@ Esse sistema foi desenvolvido para um desafio proposto pela empresa [DSIN - Tecn
 - [x]  CRUD Clientes
 - [x]  Painel de usuário
 - [x]  Agendamento de Horários
+- [x]  Listagem de horários agendados
+- [x]  Alterar um horário só é possível 2 dias antes da data agendada, caso contrário apenas por telefone
+- [ ]  Histórico de horários com filtro por determinado período
 - [ ]  Caso haja dois horários na mesma semana, propor que os serviços sejam realizados no mesmo dia
-- [ ]  Alterar um horário só é possível 2 dias antes da data agendada, caso contrário apenas por telefone
-- [ ]  Controle operacional sobre os agendamentos, podendo confirmar ou recusar a solitação do cliente
-- [ ]  Controle gerencial sobre os serviços e indicadores
+- [ ]  Modo dark/light
+- [ ]  Responsividade
+- [ ]  Painel administrativo
 
 ## Stack utilizada
 
@@ -37,7 +40,7 @@ Esse sistema foi desenvolvido para um desafio proposto pela empresa [DSIN - Tecn
 
 ## Demonstração
 
-Insira um gif ou um link de alguma demonstração
+O site encontra-se disponível online! [Cabeleleila Leila Salão de Beleiza](https://leila-saloon-3bki6fnug-anti-w.vercel.app/)
 
 
 
@@ -68,7 +71,6 @@ Inicie o servidor
   npm run dev
 ```
 
-Entre seguir as boas práticas em esconder variáveis de ambientes e facilitar a correção, optei por seguir as boas práticas, por isso segue via e-mail as variáveis de ambientes necessárias para o projeto funcionar no ambiente local.
 ## Aprendizados
 
 Lidar com datas pode parecer fácil, mas é complicado e é preciso validar, estar atento, pois pode ser que algo tenha passado e com certeza sempre tem o que melhorar, nunca estou satisfeito, porém fiz o que pude dado o tempo de desafio. 
