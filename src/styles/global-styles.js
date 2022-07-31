@@ -25,6 +25,10 @@ h1 {
   color: white
 }
 
+a {
+  text-decoration: none;
+}
+
 a:visited {
   color: inherit;
 }

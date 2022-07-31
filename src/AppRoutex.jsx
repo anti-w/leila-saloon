@@ -21,15 +21,10 @@ export const AppRoutes = () => {
     <BrowserRouter>
       <AuthProvider>
         <Routes>
-          <Route exact path="/" element={<Home />} />
-          <Route exact path="/login" element={<Login />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
           <Route
-            exact
-            path="/register"
-            element={<Register />}
-          />
-          <Route
-            exact
             path="/user"
             element={
               <Private>
