@@ -15,7 +15,7 @@ export const Container = styled.header`
   `}
 `;
 
-export const Links = styled.a`
+export const Links = styled.div`
   ${({ theme }) => css`
 
   display: flex;
