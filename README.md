@@ -16,7 +16,9 @@ Esse sistema foi desenvolvido para um desafio proposto pela empresa [DSIN - Tecn
 - [x]  Painel de usuário
 - [x]  Agendamento de Horários
 - [x]  Listagem de horários agendados
+- [x]  Alterar horário
 - [x]  Alterar um horário só é possível 2 dias antes da data agendada, caso contrário apenas por telefone
+- [ ]  Cancelar horário agendado
 - [ ]  Histórico de horários com filtro por determinado período
 - [ ]  Caso haja dois horários na mesma semana, propor que os serviços sejam realizados no mesmo dia
 - [ ]  Modo dark/light
