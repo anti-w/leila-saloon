@@ -43,7 +43,7 @@ export const ButtonContainer = styled.div`
 export const FormFooter = styled.div`
   ${({ theme }) => css`
   display: flex;
-  margin-top: 20px;
+  margin-block: 20px;
   gap: 3rem;
   justify-content: center;
   align-items: center;

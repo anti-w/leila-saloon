@@ -7,6 +7,7 @@ import {
   Route,
   Routes,
 } from 'react-router-dom';
+import { ThemeProvider } from 'styled-components';
 import {
   AuthContext,
   AuthProvider,
@@ -15,26 +16,45 @@ import { Home } from './pages/Home';
 import { Login } from './pages/Login';
 import { Register } from './pages/Register';
 import { User } from './pages/User';
+import { GlobalStyles } from './styles/global-styles';
+
+import { darkTheme, lightTheme } from './styles/theme';
+import { useDarkMode } from './styles/useDarkMode';
 
 export const AppRoutes = () => {
+  const [theme, toggleTheme] = useDarkMode();
+  const themeMode =
+    theme === 'light' ? lightTheme : darkTheme;
   return (
-    <BrowserRouter>
-      <AuthProvider>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-          <Route
-            path="/user"
-            element={
-              <Private>
-                <User />
-              </Private>
-            }
-          />
-        </Routes>
-      </AuthProvider>
-    </BrowserRouter>
+    <ThemeProvider theme={themeMode}>
+      <GlobalStyles />
+      <BrowserRouter>
+        <AuthProvider>
+          <Routes>
+            <Route exact path="/" element={<Home />} />
+            <Route
+              exact
+              path="/login"
+              element={<Login />}
+            />
+            <Route
+              exact
+              path="/register"
+              element={<Register />}
+            />
+            <Route
+              exact
+              path="/user"
+              element={
+                <Private>
+                  <User />
+                </Private>
+              }
+            />
+          </Routes>
+        </AuthProvider>
+      </BrowserRouter>
+    </ThemeProvider>
   );
 };
 

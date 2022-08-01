@@ -26,9 +26,7 @@ h1 {
 }
 
 a {
-  text-decoration: none;
   color: ${({ theme }) => theme.colors.primary};
-
 }
 
 a:visited {
@@ -47,6 +45,23 @@ a:visited {
     cursor: pointer;
     font-size: 16px;
     font-weight: bold;
+  }
+
+  .home-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    border-radius: 10px;
+    color: white;
+    gap: 20px;
+
+  }
+
+  .home-icon:hover {
+    background: ${({ theme }) => theme.colors.menu.primary};
+    border-color: ${({ theme }) =>
+      theme.colors.menu.primary};
   }
 
 button:hover{

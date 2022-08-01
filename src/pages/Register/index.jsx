@@ -9,11 +9,15 @@ import { AuthContext } from '../../context/authContext';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { TextError } from '../../components/TextError';
 import { createUser } from '../../services/createUser';
-import { useNavigate } from 'react-router-dom';
+import {
+  Link,
+  Navigate,
+  useNavigate,
+} from 'react-router-dom';
+import { HouseLine } from 'phosphor-react';
 
 export const Register = () => {
-  const { authenticated, login } = useContext(AuthContext);
-  const navigate = useNavigate();
+  const { login, authenticated } = useContext(AuthContext);
 
   const initialValues = {
     email: '',
@@ -43,13 +47,14 @@ export const Register = () => {
       .required('Confirmar sua senha é obrigatório'),
   });
 
-  if (authenticated) return navigate('/user');
+  if (authenticated) return <Navigate to="/user" />;
 
   return (
     <Styled.Container>
       <h1 style={{ marginBottom: '20px' }}>
         Faça seu cadastro
       </h1>
+
       <Styled.FormContainer>
         <Formik
           initialValues={initialValues}
@@ -122,9 +127,15 @@ export const Register = () => {
               </button>
               <p>
                 Já possui cadastro?{' '}
-                <a href="/login">Entrar</a>{' '}
+                <Link to="/login">Entrar</Link>{' '}
               </p>
             </Styled.FormFooter>
+            <Link to="/" className="home-icon">
+              <p style={{ color: 'white' }}>
+                Voltar para Home
+              </p>
+              <HouseLine size={32} color="white" />
+            </Link>
           </Form>
         </Formik>
       </Styled.FormContainer>

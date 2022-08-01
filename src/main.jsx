@@ -1,10 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-
-import { MyThemeProvider } from './styles/MyThemeProvider';
+import { AppRoutes } from './AppRoutex';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <MyThemeProvider />
+    <AppRoutes />
   </React.StrictMode>,
 );

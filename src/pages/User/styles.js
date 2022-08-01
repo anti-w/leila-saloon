@@ -39,6 +39,8 @@ export const Navigator = styled.div`
     background: ${theme.colors.menu.primary};
     border-color: ${theme.colors.menu.primary};
   }
+
+
   `}
 `;
 

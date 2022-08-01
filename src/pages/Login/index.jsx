@@ -8,7 +8,12 @@ import { AuthContext } from '../../context/authContext';
 
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { TextError } from '../../components/TextError';
-import { useNavigate } from 'react-router-dom';
+import {
+  Link,
+  Navigate,
+  useNavigate,
+} from 'react-router-dom';
+import { HouseLine } from 'phosphor-react';
 
 export const Login = () => {
   const { authenticated, login } = useContext(AuthContext);
@@ -30,13 +35,14 @@ export const Login = () => {
     password: Yup.string().required('Senha é obrigatória'),
   });
 
-  if (authenticated) return navigate('/user');
+  if (authenticated) return <Navigate to="/user" />;
 
   return (
     <Styled.Container>
       <h1 style={{ marginBottom: '20px' }}>
         Entre com sua conta
       </h1>
+
       <Styled.FormContainer>
         <Formik
           initialValues={initialValues}
@@ -84,6 +90,12 @@ export const Login = () => {
                 <a href="/register">Registrar</a>{' '}
               </p>
             </Styled.FormFooter>
+            <Link to="/" className="home-icon">
+              <p style={{ color: 'white' }}>
+                Voltar para Home
+              </p>
+              <HouseLine size={32} color="white" />
+            </Link>
           </Form>
         </Formik>
       </Styled.FormContainer>

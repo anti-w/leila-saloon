@@ -3,12 +3,13 @@ import 'react-datepicker/dist/react-datepicker.css';
 import P from 'prop-types';
 
 import { useContext, useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 import { AuthContext } from '../../context/authContext';
 
 import {
   Calendar,
+  HouseLine,
   Trash,
   UserCircle,
 } from 'phosphor-react';
@@ -93,6 +94,9 @@ export const User = () => {
           >
             Histórico
           </button>
+          <Link to="/" className="home-icon">
+            <HouseLine size={32} color="white" />
+          </Link>
         </Styled.Navigator>
         <Styled.UserArea>
           <div
