@@ -20,8 +20,9 @@ Esse sistema foi desenvolvido para um desafio proposto pela empresa [DSIN - Tecn
 - [x]  Listagem de horários agendados
 - [x]  Alterar horário
 - [x]  Alterar um horário só é possível 2 dias antes da data agendada, caso contrário apenas por telefone
-- [ ]  Cancelar horário agendado
-- [ ]  Histórico de horários com filtro por determinado período
+- [x]  Cancelar horário agendado
+- [x]  Histórico de horários
+- [ ]  Filtrar histórico por período selecionado
 - [ ]  Caso haja dois horários na mesma semana, propor que os serviços sejam realizados no mesmo dia
 - [ ]  Modo dark/light
 - [ ]  Responsividade
@@ -45,6 +46,20 @@ Esse sistema foi desenvolvido para um desafio proposto pela empresa [DSIN - Tecn
 ## Demonstração
 
 O site encontra-se disponível online! [Cabeleleila Leila Salão de Beleiza](https://leila-saloon-3bki6fnug-anti-w.vercel.app/)
+
+![Site structure](https://res.cloudinary.com/dscztnlqq/image/upload/v1659345880/leila-saloon/Captura_de_Tela_26_np8jah.png)
+
+![Home Page](https://res.cloudinary.com/dscztnlqq/image/upload/v1659344783/leila-saloon/Captura_de_Tela_16_usjemd.png)
+
+![Login Page](https://res.cloudinary.com/dscztnlqq/image/upload/v1659344783/leila-saloon/Captura_de_Tela_17_m0ms1a.png)
+
+![Register Page](https://res.cloudinary.com/dscztnlqq/image/upload/v1659344783/leila-saloon/Captura_de_Tela_18_rhk9jn.png)
+
+![User Schedules List Page](https://res.cloudinary.com/dscztnlqq/image/upload/v1659344783/leila-saloon/Captura_de_Tela_23_maalxk.png)
+
+![[User Schedules History Page](https://res.cloudinary.com/dscztnlqq/image/upload/v1659344783/leila-saloon/Captura_de_Tela_24_gsupsl.png)
+
+![Create Schedules](https://res.cloudinary.com/dscztnlqq/image/upload/v1659344783/leila-saloon/Captura_de_Tela_21_blhhyr.png)
 
 
 
