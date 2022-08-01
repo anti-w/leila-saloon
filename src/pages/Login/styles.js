@@ -82,6 +82,7 @@ export const Field = styled.div`
     width: 100%;
     border-radius: 5px;
     margin-top: 3px;
+    padding-left: 10px;
   }
 
 
