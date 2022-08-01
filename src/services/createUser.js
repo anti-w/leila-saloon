@@ -3,7 +3,7 @@ import { api } from './api';
 export const createUser = async (dataUser) => {
   try {
     const { data } = await api.post(
-      '/auth/register',
+      '/user/register',
       dataUser,
     );
     alert(data.msg);

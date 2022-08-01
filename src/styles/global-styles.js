@@ -52,6 +52,7 @@ a:visited {
 button:hover{
   background: ${({ theme }) => theme.colors.menu.primary};
   border-color: ${({ theme }) => theme.colors.menu.primary};
+  transition: ease-in-out 300ms;
 }
 
 button:disabled{

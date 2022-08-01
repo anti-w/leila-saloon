@@ -7,9 +7,14 @@ import { useNavigate } from 'react-router-dom';
 
 import { AuthContext } from '../../context/authContext';
 
-import { Plus, UserCircle } from 'phosphor-react';
+import {
+  Calendar,
+  Trash,
+  UserCircle,
+} from 'phosphor-react';
 import { ScheduleForm } from '../../components/ScheduleForm';
 import { listSchedules } from '../../services/listSchedules';
+import { deleteSchedule } from '../../services/deleteSchedule';
 
 const difBetweenDates = (date) => {
   var today = new Date().getTime();
@@ -22,7 +27,10 @@ const difBetweenDates = (date) => {
 export const User = () => {
   const [selectedMenuItem, setSelectedMenuItem] =
     useState('schedules');
-  const [userSchedules, setUserSchedules] = useState([]);
+  const [presentSchedules, setPresentSchedules] = useState(
+    [],
+  );
+  const [pastSchedules, setPastSchedules] = useState([]);
 
   const [displayScheduleForm, setDisplayScheduleForm] =
     useState(false);
@@ -37,14 +45,18 @@ export const User = () => {
   useEffect(() => {
     (async () => {
       const {
-        data: { schedules },
+        data: { presentSchedules, pastSchedules },
       } = await listSchedules();
 
-      setUserSchedules(schedules);
+      setPresentSchedules(presentSchedules);
+      setPastSchedules(pastSchedules);
     })();
-  }, [userSchedules]);
+  }, [presentSchedules]);
 
-  userSchedules.map((schedule) => {
+  presentSchedules.map((schedule) => {
+    schedule.date = new Date(schedule.date);
+  });
+  pastSchedules.map((schedule) => {
     schedule.date = new Date(schedule.date);
   });
 
@@ -60,36 +72,62 @@ export const User = () => {
         setIsUpdating={setIsUpdating}
       />
       <Styled.MenuSideBar>
-        <button
-          className="styled-button"
-          onClick={() => setSelectedMenuItem('schedules')}
-        >
-          Horários
-        </button>
-        <button
-          className="styled-button"
-          onClick={() => setSelectedMenuItem('history')}
-        >
-          Histórico
-        </button>
-        <UserCircle size={50} />
-        <h3>{user.name}</h3>
-
-        <button className="styled-button" onClick={logout}>
-          Sair
-        </button>
+        <Styled.Navigator>
+          <button
+            className={
+              selectedMenuItem === 'schedules'
+                ? 'styled-button selected'
+                : 'styled-button'
+            }
+            onClick={() => setSelectedMenuItem('schedules')}
+          >
+            Horários
+          </button>
+          <button
+            className={
+              selectedMenuItem === 'history'
+                ? 'styled-button selected'
+                : 'styled-button'
+            }
+            onClick={() => setSelectedMenuItem('history')}
+          >
+            Histórico
+          </button>
+        </Styled.Navigator>
+        <Styled.UserArea>
+          <div
+            style={{
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+              gap: '10px',
+            }}
+          >
+            <UserCircle size={50} />
+            <h3>{user.name}</h3>
+          </div>
+          <button
+            className="styled-button"
+            onClick={logout}
+          >
+            Sair
+          </button>
+        </Styled.UserArea>
       </Styled.MenuSideBar>
       <Styled.Content>
         {selectedMenuItem == 'schedules' && (
           <Styled.Schedules>
             <h1>Lista de horários</h1>
-            <button
-              className="styled-button"
-              onClick={() => setDisplayScheduleForm(true)}
-            >
-              <Plus />
-            </button>
-            {userSchedules.map((item) => (
+            <Styled.NewScheduleIcon>
+              <h2>Agendar novo horário</h2>
+              <button
+                className="new-schedule"
+                onClick={() => setDisplayScheduleForm(true)}
+              >
+                <Calendar size={40} />
+              </button>
+            </Styled.NewScheduleIcon>
+            {presentSchedules.map((item) => (
               <Styled.ScheduleCard key={item._id}>
                 <span>
                   {item.date.toLocaleDateString()}
@@ -97,7 +135,9 @@ export const User = () => {
                 <span>
                   {item.date.toLocaleTimeString()}
                 </span>
-                <span>{item.service}</span>
+                <span className="service">
+                  {item.service}
+                </span>
                 <button
                   className="styled-button"
                   onClick={() => {
@@ -111,8 +151,11 @@ export const User = () => {
                 >
                   Alterar horário
                 </button>
-                <button className="styled-button">
-                  Cancelar horário
+                <button
+                  className="trash-icon"
+                  onClick={() => deleteSchedule(item._id)}
+                >
+                  <Trash size={30} />
                 </button>
               </Styled.ScheduleCard>
             ))}
@@ -122,6 +165,19 @@ export const User = () => {
         {selectedMenuItem == 'history' && (
           <Styled.Schedules>
             <h1>Histórico de horários</h1>
+            {pastSchedules.map((item) => (
+              <Styled.ScheduleCard key={item._id}>
+                <span>
+                  {item.date.toLocaleDateString()}
+                </span>
+                <span>
+                  {item.date.toLocaleTimeString()}
+                </span>
+                <span className="service">
+                  {item.service}
+                </span>
+              </Styled.ScheduleCard>
+            ))}
           </Styled.Schedules>
         )}
       </Styled.Content>

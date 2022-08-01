@@ -6,7 +6,7 @@ export const listSchedules = async () => {
     localStorage.getItem('user'),
   )._id;
 
-  return await api.get(`/user/${userId}`, {
+  return await api.get(`/schedule/read/${userId}`, {
     headers: {
       Authorization: `Bearer ${token}`,
     },

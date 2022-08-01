@@ -12,6 +12,7 @@ export const Container = styled.div`
   align-items: center;
   flex-direction: column;
   overflow: hidden;
+  z-index: 9999;
 
   `}
 `;
@@ -21,6 +22,7 @@ export const FormContainer = styled.div`
   width: 360px;
   display: flex;
   aspect-ratio: 1/1;
+  background: ${theme.colors.menu.primary};
   justify-content: space-around;
   flex-direction: column;
   box-shadow: 4px 9px 27px -2px rgba(0,0,0,0.54);
@@ -36,6 +38,14 @@ export const ButtonContainer = styled.div`
   gap: 80px;
   justify-content: center;
   align-items: center;
+
+  button {
+    width: 10%;
+  }
+
+  button:hover {
+    background: ${theme.colors.menu.background};
+  }
   `}
 `;
 

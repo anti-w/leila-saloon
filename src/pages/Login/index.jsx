@@ -27,9 +27,7 @@ export const Login = () => {
     email: Yup.string()
       .email('Formato de e-mail inválido')
       .required('E-mail é obrigatório'),
-    password: Yup.string().required(
-      'Password é obrigatório',
-    ),
+    password: Yup.string().required('Senha é obrigatória'),
   });
 
   if (authenticated) return navigate('/user');

@@ -8,7 +8,7 @@ export const createSchedule = async (
 ) => {
   try {
     const { data } = await api.post(
-      `/user/${userId}/schedule`,
+      `/schedule/create/${userId}`,
       {
         userName,
         date,

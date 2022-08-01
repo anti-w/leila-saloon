@@ -5,7 +5,7 @@ export const updateSchedule = async (
   date,
   service,
 ) => {
-  return await api.put(`/user/${scheduleId}`, {
+  return await api.put(`/schedule/update/${scheduleId}`, {
     date,
     service,
   });
