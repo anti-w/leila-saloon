@@ -57,7 +57,7 @@ O site encontra-se disponível online! [Cabeleleila Leila Salão de Beleiza](htt
 
 ![User Schedules List Page](https://res.cloudinary.com/dscztnlqq/image/upload/v1659344783/leila-saloon/Captura_de_Tela_23_maalxk.png)
 
-![[User Schedules History Page](https://res.cloudinary.com/dscztnlqq/image/upload/v1659344783/leila-saloon/Captura_de_Tela_24_gsupsl.png)
+![User Schedules History Page](https://res.cloudinary.com/dscztnlqq/image/upload/v1659344783/leila-saloon/Captura_de_Tela_24_gsupsl.png)
 
 ![Create Schedules](https://res.cloudinary.com/dscztnlqq/image/upload/v1659344783/leila-saloon/Captura_de_Tela_21_blhhyr.png)
 
